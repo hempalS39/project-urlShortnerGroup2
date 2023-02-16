@@ -83,6 +83,7 @@ If you haven’t used tinyurl.com before, please try creating a new shortened UR
 ### Url shorten response
 ```yaml
 {
+  status: true,
   "data": {
     "longUrl": "http://www.abc.com/oneofthelongesturlseverseenbyhumans.com",
     "shortUrl": "http://localhost:3000/ghfgfg",
