@@ -1,14 +1,19 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 3000;
 const route = require('./route/route')
 const mongoose = require("mongoose");
+
+require('dotenv').config();
+
+const { PORT, MONGODB_URL } = process.env
+
+console.log(PORT)
 
 app.use(express.json());
 app.use(express.urlencoded({extended : true}))
 
 
-mongoose.connect("mongodb+srv://jhahimanshu966:r60NssUKoV98Qmu6@cluster0.cxjklte.mongodb.net/group2Database" , {
+mongoose.connect(MONGODB_URL , {
     useNewUrlParser : true,
     useUnifiedTopology : true
 }).then(() => console.log("mongoDB connected"))
@@ -17,11 +22,10 @@ mongoose.connect("mongodb+srv://jhahimanshu966:r60NssUKoV98Qmu6@cluster0.cxjklte
 
 app.use('/' , route);
 
-app.listen(port , () => {
-    console.log(`server running on port ${port}`)
+app.listen(PORT , () => {
+    console.log(`server running on port ${PORT}`)
 })
 
 
 
 
-// mongodb+srv://functionup-radon:emE3iyVTUPWqSmGf@cluster0.1xlecsc.mongodb.net/group2Database?retryWrites=true&w=majority
