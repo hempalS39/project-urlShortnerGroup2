@@ -7,7 +7,6 @@ require('dotenv').config();
 
 const { PORT, MONGODB_URL } = process.env
 
-console.log(PORT)
 
 app.use(express.json());
 app.use(express.urlencoded({extended : true}))
